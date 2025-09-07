@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Remindly: Family Planner</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,939 +12,671 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
             color: #333;
+            background: #f8f9fa;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-        }
-        
-        .privacy-card {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .header {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 40px 30px;
             text-align: center;
-            position: relative;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
         }
         
         .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: 2rem;
             margin-bottom: 10px;
-            position: relative;
+            color: #2c3e50;
         }
         
         .header p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            opacity: 0.9;
-            position: relative;
+            font-size: 1.1rem;
+            color: #666;
         }
         
         .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 10;
+            text-align: center;
+            margin-bottom: 20px;
         }
         
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
+            background: white;
+            border: 1px solid #ddd;
             padding: 8px 12px;
-            border-radius: 8px;
+            margin: 2px;
             cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
         }
         
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+            background: #f0f0f0;
         }
         
         .lang-btn.active {
-            background: white;
-            color: #3498db;
-        }
-        
-        .content {
-            padding: 40px 30px;
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
         }
         
         .section {
-            margin-bottom: 40px;
-            padding: 25px;
-            border-radius: 12px;
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            transition: all 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         
         .section h2 {
-            color: #2c3e50;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            font-size: clamp(1.2rem, 4vw, 1.5rem);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-icon {
-            width: 24px;
-            height: 24px;
-            background: #3498db;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
         
         .highlight {
-            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #3498db;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .highlight::before {
-            content: '💡';
-            font-size: 24px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
+            background: #e7f3ff;
+            padding: 15px;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            margin: 15px 0;
         }
         
         .contact-info {
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            backdrop-filter: blur(10px);
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 20px 0;
         }
         
         ul {
-            padding-left: 0;
-            list-style: none;
+            margin: 15px 0;
+            padding-left: 20px;
         }
         
         li {
-            margin: 12px 0;
-            padding: 10px 15px;
-            background: white;
-            border-radius: 8px;
-            border-left: 3px solid #3498db;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        li:hover {
-            background: #e3f2fd;
-            transform: translateX(5px);
-        }
-        
-        li::before {
-            content: '✓';
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 10px;
+            margin: 8px 0;
         }
         
         .date {
-            color: #7f8c8d;
+            color: #666;
             font-style: italic;
             text-align: center;
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 10px;
-            margin-top: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
         }
         
-        .footer {
-            text-align: center;
-            padding: 30px;
-            background: #2c3e50;
-            color: white;
-            margin-top: 40px;
-        }
-        
-        /* Mobile optimizations */
+        /* Mobile */
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                margin: 10px;
+                padding: 15px;
             }
             
-            .lang-switcher {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            
-            .content, .header {
-                padding: 20px 15px;
-            }
-            
-            .section {
-                padding: 20px 15px;
+            .header h1 {
+                font-size: 1.5rem;
             }
             
             .lang-btn {
                 padding: 6px 10px;
-                font-size: 14px;
+                font-size: 12px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .section h2 {
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-            }
-            
-            .highlight::before {
-                position: static;
-                display: block;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-        }
-        
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            .section {
-                background: #34495e;
-                color: #ecf0f1;
-            }
-            
-            .section h2 {
-                color: #3498db;
-            }
-            
-            li {
-                background: #2c3e50;
-                color: #ecf0f1;
-            }
-            
-            li:hover {
-                background: #34495e;
-            }
-        }
-        
-        /* Animation for smooth transitions */
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="uk">UK</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="ja">JA</button>
+        </div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+        <div class="header">
+            <h1 id="main-title">Privacy Policy</h1>
+            <p id="main-subtitle">Remindly: Family Planner</p>
+        </div>
 
+        <p class="date" id="last-updated">Last updated: September 6, 2025</p>
+        
+        <div class="highlight">
+            <strong id="short-description">Remindly stores all data locally on your device. We do not collect, store, or share your personal data with third parties.</strong>
+        </div>
+
+        <div class="section">
+            <h2 id="data-collection-title">Information We Collect</h2>
+            <ul id="data-collection-list">
+                <li>Camera: Used exclusively for QR code scanning</li>
+                <li>Photo Gallery: For saving generated QR codes</li>
+                <li>Reminders and Events: Data you enter in the app</li>
+                <li>Voice recordings: For voice reminders (if used)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 id="data-usage-title">How We Use Information</h2>
+            <ul id="data-usage-list">
+                <li>Scanning QR codes for quick event adding</li>
+                <li>Creating and saving QR codes of your events</li>
+                <li>Managing family reminders and plans</li>
+                <li>Synchronizing between family devices (if enabled)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 id="data-storage-title">Data Storage</h2>
+            <div class="highlight">
+                <strong id="data-storage-highlight">Important: All your data is stored locally on your device. We do not transfer your personal data to our servers or third parties.</strong>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 id="permissions-title">App Permissions</h2>
+            <ul id="permissions-list">
+                <li>Camera: For QR code scanning</li>
+                <li>Storage: For saving QR codes to gallery</li>
+                <li>Microphone: For voice reminders (if used)</li>
+                <li>Notifications: For reminder alerts</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 id="security-title">Security</h2>
+            <ul id="security-list">
+                <li>Data is not transmitted over the internet without your consent</li>
+                <li>We use modern encryption methods for local storage</li>
+                <li>We regularly update the app to fix vulnerabilities</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 id="children-title">Children</h2>
+            <p id="children-content">Our app is designed for family use. We do not collect personal information from children under 13 without parental consent.</p>
+        </div>
+
+        <div class="section">
+            <h2 id="changes-title">Policy Changes</h2>
+            <p id="changes-content">We may update this privacy policy. We will notify you of any changes through app updates or on this page.</p>
+        </div>
+
+        <div class="section">
+            <h2 id="rights-title">Your Rights</h2>
+            <ul id="rights-list">
+                <li>Delete all data by uninstalling the app</li>
+                <li>Disable any permissions in device settings</li>
+                <li>Contact us with privacy questions</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3 id="contact-title">Contact Information</h3>
+            <p id="contact-description">If you have questions about this privacy policy, contact us:</p>
+            <p id="contact-email">Email: privacy@beldiuhin.tech</p>
+            <p id="contact-developer">Developer: Beldiuhin.Tech</p>
+            <p id="contact-website">Website: https://github.com/ybeldiuhin</p>
+        </div>
+
+        <div class="date" id="footer">
+            This privacy policy is effective from September 6, 2025 for Remindly: Family Planner version 1.0.0 and above.
+        </div>
+    </div>
+
+    <script>
         const translations = {
             en: {
                 title: "Privacy Policy",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Last updated: September 6, 2025",
                 shortDescription: "Remindly stores all data locally on your device. We do not collect, store, or share your personal data with third parties.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Information We Collect",
-                        content: [
-                            "Camera: Used exclusively for QR code scanning",
-                            "Photo Gallery: For saving generated QR codes",
-                            "Reminders and Events: Data you enter in the app",
-                            "Voice recordings: For voice reminders (if used)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "How We Use Information",
-                        content: [
-                            "Scanning QR codes for quick event adding",
-                            "Creating and saving QR codes of your events",
-                            "Managing family reminders and plans",
-                            "Synchronizing between family devices (if enabled)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Data Storage",
-                        highlight: "Important: All your data is stored locally on your device. We do not transfer your personal data to our servers or third parties."
-                    },
-                    permissions: {
-                        title: "App Permissions",
-                        content: [
-                            "Camera: For QR code scanning",
-                            "Storage: For saving QR codes to gallery",
-                            "Microphone: For voice reminders (if used)",
-                            "Notifications: For reminder alerts"
-                        ]
-                    },
-                    security: {
-                        title: "Security",
-                        content: [
-                            "Data is not transmitted over the internet without your consent",
-                            "We use modern encryption methods for local storage",
-                            "We regularly update the app to fix vulnerabilities"
-                        ]
-                    },
-                    children: {
-                        title: "Children",
-                        content: "Our app is designed for family use. We do not collect personal information from children under 13 without parental consent."
-                    },
-                    changes: {
-                        title: "Policy Changes",
-                        content: "We may update this privacy policy. We will notify you of any changes through app updates or on this page."
-                    },
-                    rights: {
-                        title: "Your Rights",
-                        content: [
-                            "Delete all data by uninstalling the app",
-                            "Disable any permissions in device settings",
-                            "Contact us with privacy questions"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Contact Information",
-                    description: "If you have questions about this privacy policy, contact us:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Developer: Beldiuhin.Tech",
-                    website: "Website: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Information We Collect",
+                dataCollectionList: [
+                    "Camera: Used exclusively for QR code scanning",
+                    "Photo Gallery: For saving generated QR codes",
+                    "Reminders and Events: Data you enter in the app",
+                    "Voice recordings: For voice reminders (if used)"
+                ],
+                dataUsageTitle: "How We Use Information",
+                dataUsageList: [
+                    "Scanning QR codes for quick event adding",
+                    "Creating and saving QR codes of your events",
+                    "Managing family reminders and plans",
+                    "Synchronizing between family devices (if enabled)"
+                ],
+                dataStorageTitle: "Data Storage",
+                dataStorageHighlight: "Important: All your data is stored locally on your device. We do not transfer your personal data to our servers or third parties.",
+                permissionsTitle: "App Permissions",
+                permissionsList: [
+                    "Camera: For QR code scanning",
+                    "Storage: For saving QR codes to gallery",
+                    "Microphone: For voice reminders (if used)",
+                    "Notifications: For reminder alerts"
+                ],
+                securityTitle: "Security",
+                securityList: [
+                    "Data is not transmitted over the internet without your consent",
+                    "We use modern encryption methods for local storage",
+                    "We regularly update the app to fix vulnerabilities"
+                ],
+                childrenTitle: "Children",
+                childrenContent: "Our app is designed for family use. We do not collect personal information from children under 13 without parental consent.",
+                changesTitle: "Policy Changes",
+                changesContent: "We may update this privacy policy. We will notify you of any changes through app updates or on this page.",
+                rightsTitle: "Your Rights",
+                rightsList: [
+                    "Delete all data by uninstalling the app",
+                    "Disable any permissions in device settings",
+                    "Contact us with privacy questions"
+                ],
+                contactTitle: "Contact Information",
+                contactDescription: "If you have questions about this privacy policy, contact us:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Developer: Beldiuhin.Tech",
+                contactWebsite: "Website: https://github.com/ybeldiuhin",
                 footer: "This privacy policy is effective from September 6, 2025 for Remindly: Family Planner version 1.0.0 and above."
             },
-            
             uk: {
                 title: "Політика конфіденційності",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Дата останнього оновлення: 6 вересня 2025 року",
                 shortDescription: "Remindly зберігає всі дані локально на вашому пристрої. Ми не збираємо, не зберігаємо та не передаємо ваші особисті дані третім сторонам.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Інформація, яку ми збираємо",
-                        content: [
-                            "Камера: Використовується виключно для сканування QR-кодів",
-                            "Галерея фотографій: Для збереження згенерованих QR-кодів",
-                            "Нагадування та події: Дані, які ви вводите в додатку",
-                            "Голосові записи: Для голосових нагадувань (якщо використовується)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "Як ми використовуємо інформацію",
-                        content: [
-                            "Сканування QR-кодів для швидкого додавання подій",
-                            "Створення та збереження QR-кодів ваших подій",
-                            "Управління сімейними нагадуваннями та планами",
-                            "Синхронізація між пристроями сім'ї (якщо увімкнено)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Зберігання даних",
-                        highlight: "Важливо: Всі ваші дані зберігаються локально на вашому пристрої. Ми не передаємо ваші особисті дані на наші сервери або третім сторонам."
-                    },
-                    permissions: {
-                        title: "Дозволи додатка",
-                        content: [
-                            "Камера: Для сканування QR-кодів",
-                            "Зберігання: Для збереження QR-кодів у галереї",
-                            "Мікрофон: Для голосових нагадувань (якщо використовується)",
-                            "Сповіщення: Для алертів нагадувань"
-                        ]
-                    },
-                    security: {
-                        title: "Безпека",
-                        content: [
-                            "Дані не передаються через інтернет без вашої згоди",
-                            "Використовуємо сучасні методи шифрування для локального зберігання",
-                            "Регулярно оновлюємо додаток для усунення вразливостей"
-                        ]
-                    },
-                    children: {
-                        title: "Діти",
-                        content: "Наш додаток призначений для сімейного використання. Ми не збираємо особисту інформацію від дітей віком до 13 років без згоди батьків."
-                    },
-                    changes: {
-                        title: "Зміни в політиці",
-                        content: "Ми можемо оновлювати цю політику конфіденційності. Про всі зміни ми повідомимо через оновлення додатка або на цій сторінці."
-                    },
-                    rights: {
-                        title: "Ваші права",
-                        content: [
-                            "Видалити всі дані, видаливши додаток",
-                            "Відключити будь-які дозволи в налаштуваннях пристрою",
-                            "Звернутися до нас з питаннями про конфіденційність"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Контактна інформація",
-                    description: "Якщо у вас є питання щодо цієї політики конфіденційності, зв'яжіться з нами:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Розробник: Beldiuhin.Tech",
-                    website: "Веб-сайт: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Інформація, яку ми збираємо",
+                dataCollectionList: [
+                    "Камера: Використовується виключно для сканування QR-кодів",
+                    "Галерея фотографій: Для збереження згенерованих QR-кодів",
+                    "Нагадування та події: Дані, які ви вводите в додатку",
+                    "Голосові записи: Для голосових нагадувань (якщо використовується)"
+                ],
+                dataUsageTitle: "Як ми використовуємо інформацію",
+                dataUsageList: [
+                    "Сканування QR-кодів для швидкого додавання подій",
+                    "Створення та збереження QR-кодів ваших подій",
+                    "Управління сімейними нагадуваннями та планами",
+                    "Синхронізація між пристроями сім'ї (якщо увімкнено)"
+                ],
+                dataStorageTitle: "Зберігання даних",
+                dataStorageHighlight: "Важливо: Всі ваші дані зберігаються локально на вашому пристрої. Ми не передаємо ваші особисті дані на наші сервери або третім сторонам.",
+                permissionsTitle: "Дозволи додатка",
+                permissionsList: [
+                    "Камера: Для сканування QR-кодів",
+                    "Зберігання: Для збереження QR-кодів у галереї",
+                    "Мікрофон: Для голосових нагадувань (якщо використовується)",
+                    "Сповіщення: Для алертів нагадувань"
+                ],
+                securityTitle: "Безпека",
+                securityList: [
+                    "Дані не передаються через інтернет без вашої згоди",
+                    "Використовуємо сучасні методи шифрування для локального зберігання",
+                    "Регулярно оновлюємо додаток для усунення вразливостей"
+                ],
+                childrenTitle: "Діти",
+                childrenContent: "Наш додаток призначений для сімейного використання. Ми не збираємо особисту інформацію від дітей віком до 13 років без згоди батьків.",
+                changesTitle: "Зміни в політиці",
+                changesContent: "Ми можемо оновлювати цю політику конфіденційності. Про всі зміни ми повідомимо через оновлення додатка або на цій сторінці.",
+                rightsTitle: "Ваші права",
+                rightsList: [
+                    "Видалити всі дані, видаливши додаток",
+                    "Відключити будь-які дозволи в налаштуваннях пристрою",
+                    "Звернутися до нас з питаннями про конфіденційність"
+                ],
+                contactTitle: "Контактна інформація",
+                contactDescription: "Якщо у вас є питання щодо цієї політики конфіденційності, зв'яжіться з нами:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Розробник: Beldiuhin.Tech",
+                contactWebsite: "Веб-сайт: https://github.com/ybeldiuhin",
                 footer: "Ця політика конфіденційності є дійсною з 6 вересня 2025 року для додатка Remindly: Family Planner версії 1.0.0 та вище."
             },
-            
             fr: {
                 title: "Politique de confidentialité",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Dernière mise à jour: 6 septembre 2025",
                 shortDescription: "Remindly stocke toutes les données localement sur votre appareil. Nous ne collectons, ne stockons, ni ne partageons vos données personnelles avec des tiers.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Informations que nous collectons",
-                        content: [
-                            "Caméra: Utilisée exclusivement pour le scan de codes QR",
-                            "Galerie photo: Pour sauvegarder les codes QR générés",
-                            "Rappels et événements: Données que vous saisissez dans l'app",
-                            "Enregistrements vocaux: Pour les rappels vocaux (si utilisé)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "Comment nous utilisons les informations",
-                        content: [
-                            "Scanner les codes QR pour ajouter rapidement des événements",
-                            "Créer et sauvegarder les codes QR de vos événements",
-                            "Gérer les rappels et plans familiaux",
-                            "Synchroniser entre les appareils familiaux (si activé)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Stockage des données",
-                        highlight: "Important: Toutes vos données sont stockées localement sur votre appareil. Nous ne transférons pas vos données personnelles vers nos serveurs ou des tiers."
-                    },
-                    permissions: {
-                        title: "Autorisations de l'application",
-                        content: [
-                            "Caméra: Pour scanner les codes QR",
-                            "Stockage: Pour sauvegarder les codes QR dans la galerie",
-                            "Microphone: Pour les rappels vocaux (si utilisé)",
-                            "Notifications: Pour les alertes de rappel"
-                        ]
-                    },
-                    security: {
-                        title: "Sécurité",
-                        content: [
-                            "Les données ne sont pas transmises sur internet sans votre consentement",
-                            "Nous utilisons des méthodes de chiffrement modernes pour le stockage local",
-                            "Nous mettons régulièrement à jour l'app pour corriger les vulnérabilités"
-                        ]
-                    },
-                    children: {
-                        title: "Enfants",
-                        content: "Notre application est conçue pour un usage familial. Nous ne collectons pas d'informations personnelles d'enfants de moins de 13 ans sans consentement parental."
-                    },
-                    changes: {
-                        title: "Modifications de la politique",
-                        content: "Nous pouvons mettre à jour cette politique de confidentialité. Nous vous informerons de tout changement via les mises à jour de l'app ou sur cette page."
-                    },
-                    rights: {
-                        title: "Vos droits",
-                        content: [
-                            "Supprimer toutes les données en désinstallant l'app",
-                            "Désactiver toute autorisation dans les paramètres de l'appareil",
-                            "Nous contacter pour des questions de confidentialité"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Informations de contact",
-                    description: "Si vous avez des questions sur cette politique de confidentialité, contactez-nous:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Développeur: Beldiuhin.Tech",
-                    website: "Site web: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Informations que nous collectons",
+                dataCollectionList: [
+                    "Caméra: Utilisée exclusivement pour le scan de codes QR",
+                    "Galerie photo: Pour sauvegarder les codes QR générés",
+                    "Rappels et événements: Données que vous saisissez dans l'app",
+                    "Enregistrements vocaux: Pour les rappels vocaux (si utilisé)"
+                ],
+                dataUsageTitle: "Comment nous utilisons les informations",
+                dataUsageList: [
+                    "Scanner les codes QR pour ajouter rapidement des événements",
+                    "Créer et sauvegarder les codes QR de vos événements",
+                    "Gérer les rappels et plans familiaux",
+                    "Synchroniser entre les appareils familiaux (si activé)"
+                ],
+                dataStorageTitle: "Stockage des données",
+                dataStorageHighlight: "Important: Toutes vos données sont stockées localement sur votre appareil. Nous ne transférons pas vos données personnelles vers nos serveurs ou des tiers.",
+                permissionsTitle: "Autorisations de l'application",
+                permissionsList: [
+                    "Caméra: Pour scanner les codes QR",
+                    "Stockage: Pour sauvegarder les codes QR dans la galerie",
+                    "Microphone: Pour les rappels vocaux (si utilisé)",
+                    "Notifications: Pour les alertes de rappel"
+                ],
+                securityTitle: "Sécurité",
+                securityList: [
+                    "Les données ne sont pas transmises sur internet sans votre consentement",
+                    "Nous utilisons des méthodes de chiffrement modernes pour le stockage local",
+                    "Nous mettons régulièrement à jour l'app pour corriger les vulnérabilités"
+                ],
+                childrenTitle: "Enfants",
+                childrenContent: "Notre application est conçue pour un usage familial. Nous ne collectons pas d'informations personnelles d'enfants de moins de 13 ans sans consentement parental.",
+                changesTitle: "Modifications de la politique",
+                changesContent: "Nous pouvons mettre à jour cette politique de confidentialité. Nous vous informerons de tout changement via les mises à jour de l'app ou sur cette page.",
+                rightsTitle: "Vos droits",
+                rightsList: [
+                    "Supprimer toutes les données en désinstallant l'app",
+                    "Désactiver toute autorisation dans les paramètres de l'appareil",
+                    "Nous contacter pour des questions de confidentialité"
+                ],
+                contactTitle: "Informations de contact",
+                contactDescription: "Si vous avez des questions sur cette politique de confidentialité, contactez-nous:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Développeur: Beldiuhin.Tech",
+                contactWebsite: "Site web: https://github.com/ybeldiuhin",
                 footer: "Cette politique de confidentialité est effective depuis le 6 septembre 2025 pour Remindly: Family Planner version 1.0.0 et supérieure."
             },
-            
             de: {
                 title: "Datenschutzrichtlinie",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Letzte Aktualisierung: 6. September 2025",
                 shortDescription: "Remindly speichert alle Daten lokal auf Ihrem Gerät. Wir sammeln, speichern oder teilen Ihre persönlichen Daten nicht mit Dritten.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Informationen, die wir sammeln",
-                        content: [
-                            "Kamera: Ausschließlich für QR-Code-Scanning verwendet",
-                            "Fotogalerie: Zum Speichern generierter QR-Codes",
-                            "Erinnerungen und Ereignisse: Daten, die Sie in der App eingeben",
-                            "Sprachaufnahmen: Für Spracherinnerungen (falls verwendet)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "Wie wir Informationen verwenden",
-                        content: [
-                            "QR-Codes scannen für schnelles Hinzufügen von Ereignissen",
-                            "QR-Codes Ihrer Ereignisse erstellen und speichern",
-                            "Familienerinnerungen und -pläne verwalten",
-                            "Synchronisierung zwischen Familiengeräten (falls aktiviert)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Datenspeicherung",
-                        highlight: "Wichtig: Alle Ihre Daten werden lokal auf Ihrem Gerät gespeichert. Wir übertragen Ihre persönlichen Daten nicht an unsere Server oder Dritte."
-                    },
-                    permissions: {
-                        title: "App-Berechtigungen",
-                        content: [
-                            "Kamera: Für QR-Code-Scanning",
-                            "Speicher: Zum Speichern von QR-Codes in der Galerie",
-                            "Mikrofon: Für Spracherinnerungen (falls verwendet)",
-                            "Benachrichtigungen: Für Erinnerungsalarme"
-                        ]
-                    },
-                    security: {
-                        title: "Sicherheit",
-                        content: [
-                            "Daten werden nicht über das Internet übertragen ohne Ihre Zustimmung",
-                            "Wir verwenden moderne Verschlüsselungsmethoden für lokale Speicherung",
-                            "Wir aktualisieren die App regelmäßig zur Behebung von Sicherheitslücken"
-                        ]
-                    },
-                    children: {
-                        title: "Kinder",
-                        content: "Unsere App ist für den Familiengebrauch konzipiert. Wir sammeln keine persönlichen Informationen von Kindern unter 13 Jahren ohne elterliche Zustimmung."
-                    },
-                    changes: {
-                        title: "Richtlinienänderungen",
-                        content: "Wir können diese Datenschutzrichtlinie aktualisieren. Wir werden Sie über Änderungen durch App-Updates oder auf dieser Seite informieren."
-                    },
-                    rights: {
-                        title: "Ihre Rechte",
-                        content: [
-                            "Alle Daten durch Deinstallation der App löschen",
-                            "Berechtigungen in den Geräteeinstellungen deaktivieren",
-                            "Uns bei Datenschutzfragen kontaktieren"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Kontaktinformationen",
-                    description: "Bei Fragen zu dieser Datenschutzrichtlinie kontaktieren Sie uns:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Entwickler: Beldiuhin.Tech",
-                    website: "Website: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Informationen, die wir sammeln",
+                dataCollectionList: [
+                    "Kamera: Ausschließlich für QR-Code-Scanning verwendet",
+                    "Fotogalerie: Zum Speichern generierter QR-Codes",
+                    "Erinnerungen und Ereignisse: Daten, die Sie in der App eingeben",
+                    "Sprachaufnahmen: Für Spracherinnerungen (falls verwendet)"
+                ],
+                dataUsageTitle: "Wie wir Informationen verwenden",
+                dataUsageList: [
+                    "QR-Codes scannen für schnelles Hinzufügen von Ereignissen",
+                    "QR-Codes Ihrer Ereignisse erstellen und speichern",
+                    "Familienerinnerungen und -pläne verwalten",
+                    "Synchronisierung zwischen Familiengeräten (falls aktiviert)"
+                ],
+                dataStorageTitle: "Datenspeicherung",
+                dataStorageHighlight: "Wichtig: Alle Ihre Daten werden lokal auf Ihrem Gerät gespeichert. Wir übertragen Ihre persönlichen Daten nicht an unsere Server oder Dritte.",
+                permissionsTitle: "App-Berechtigungen",
+                permissionsList: [
+                    "Kamera: Für QR-Code-Scanning",
+                    "Speicher: Zum Speichern von QR-Codes in der Galerie",
+                    "Mikrofon: Für Spracherinnerungen (falls verwendet)",
+                    "Benachrichtigungen: Für Erinnerungsalarme"
+                ],
+                securityTitle: "Sicherheit",
+                securityList: [
+                    "Daten werden nicht über das Internet übertragen ohne Ihre Zustimmung",
+                    "Wir verwenden moderne Verschlüsselungsmethoden für lokale Speicherung",
+                    "Wir aktualisieren die App regelmäßig zur Behebung von Sicherheitslücken"
+                ],
+                childrenTitle: "Kinder",
+                childrenContent: "Unsere App ist für den Familiengebrauch konzipiert. Wir sammeln keine persönlichen Informationen von Kindern unter 13 Jahren ohne elterliche Zustimmung.",
+                changesTitle: "Richtlinienänderungen",
+                changesContent: "Wir können diese Datenschutzrichtlinie aktualisieren. Wir werden Sie über Änderungen durch App-Updates oder auf dieser Seite informieren.",
+                rightsTitle: "Ihre Rechte",
+                rightsList: [
+                    "Alle Daten durch Deinstallation der App löschen",
+                    "Berechtigungen in den Geräteeinstellungen deaktivieren",
+                    "Uns bei Datenschutzfragen kontaktieren"
+                ],
+                contactTitle: "Kontaktinformationen",
+                contactDescription: "Bei Fragen zu dieser Datenschutzrichtlinie kontaktieren Sie uns:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Entwickler: Beldiuhin.Tech",
+                contactWebsite: "Website: https://github.com/ybeldiuhin",
                 footer: "Diese Datenschutzrichtlinie ist ab dem 6. September 2025 für Remindly: Family Planner Version 1.0.0 und höher gültig."
             },
-            
             es: {
                 title: "Política de Privacidad",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Última actualización: 6 de septiembre de 2025",
                 shortDescription: "Remindly almacena todos los datos localmente en tu dispositivo. No recopilamos, almacenamos ni compartimos tus datos personales con terceros.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Información que recopilamos",
-                        content: [
-                            "Cámara: Usada exclusivamente para escanear códigos QR",
-                            "Galería de fotos: Para guardar códigos QR generados",
-                            "Recordatorios y eventos: Datos que ingresas en la app",
-                            "Grabaciones de voz: Para recordatorios de voz (si se usa)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "Cómo usamos la información",
-                        content: [
-                            "Escanear códigos QR para agregar eventos rápidamente",
-                            "Crear y guardar códigos QR de tus eventos",
-                            "Gestionar recordatorios y planes familiares",
-                            "Sincronizar entre dispositivos familiares (si está habilitado)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Almacenamiento de datos",
-                        highlight: "Importante: Todos tus datos se almacenan localmente en tu dispositivo. No transferimos tus datos personales a nuestros servidores o terceros."
-                    },
-                    permissions: {
-                        title: "Permisos de la aplicación",
-                        content: [
-                            "Cámara: Para escanear códigos QR",
-                            "Almacenamiento: Para guardar códigos QR en la galería",
-                            "Micrófono: Para recordatorios de voz (si se usa)",
-                            "Notificaciones: Para alertas de recordatorio"
-                        ]
-                    },
-                    security: {
-                        title: "Seguridad",
-                        content: [
-                            "Los datos no se transmiten por internet sin tu consentimiento",
-                            "Usamos métodos de encriptación modernos para almacenamiento local",
-                            "Actualizamos regularmente la app para corregir vulnerabilidades"
-                        ]
-                    },
-                    children: {
-                        title: "Niños",
-                        content: "Nuestra app está diseñada para uso familiar. No recopilamos información personal de niños menores de 13 años sin consentimiento parental."
-                    },
-                    changes: {
-                        title: "Cambios en la política",
-                        content: "Podemos actualizar esta política de privacidad. Te notificaremos cualquier cambio a través de actualizaciones de la app o en esta página."
-                    },
-                    rights: {
-                        title: "Tus derechos",
-                        content: [
-                            "Eliminar todos los datos desinstalando la app",
-                            "Desactivar cualquier permiso en la configuración del dispositivo",
-                            "Contactarnos con preguntas de privacidad"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Información de contacto",
-                    description: "Si tienes preguntas sobre esta política de privacidad, contáctanos:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Desarrollador: Beldiuhin.Tech",
-                    website: "Sitio web: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Información que recopilamos",
+                dataCollectionList: [
+                    "Cámara: Usada exclusivamente para escanear códigos QR",
+                    "Galería de fotos: Para guardar códigos QR generados",
+                    "Recordatorios y eventos: Datos que ingresas en la app",
+                    "Grabaciones de voz: Para recordatorios de voz (si se usa)"
+                ],
+                dataUsageTitle: "Cómo usamos la información",
+                dataUsageList: [
+                    "Escanear códigos QR para agregar eventos rápidamente",
+                    "Crear y guardar códigos QR de tus eventos",
+                    "Gestionar recordatorios y planes familiares",
+                    "Sincronizar entre dispositivos familiares (si está habilitado)"
+                ],
+                dataStorageTitle: "Almacenamiento de datos",
+                dataStorageHighlight: "Importante: Todos tus datos se almacenan localmente en tu dispositivo. No transferimos tus datos personales a nuestros servidores o terceros.",
+                permissionsTitle: "Permisos de la aplicación",
+                permissionsList: [
+                    "Cámara: Para escanear códigos QR",
+                    "Almacenamiento: Para guardar códigos QR en la galería",
+                    "Micrófono: Para recordatorios de voz (si se usa)",
+                    "Notificaciones: Para alertas de recordatorio"
+                ],
+                securityTitle: "Seguridad",
+                securityList: [
+                    "Los datos no se transmiten por internet sin tu consentimiento",
+                    "Usamos métodos de encriptación modernos para almacenamiento local",
+                    "Actualizamos regularmente la app para corregir vulnerabilidades"
+                ],
+                childrenTitle: "Niños",
+                childrenContent: "Nuestra app está diseñada para uso familiar. No recopilamos información personal de niños menores de 13 años sin consentimiento parental.",
+                changesTitle: "Cambios en la política",
+                changesContent: "Podemos actualizar esta política de privacidad. Te notificaremos cualquier cambio a través de actualizaciones de la app o en esta página.",
+                rightsTitle: "Tus derechos",
+                rightsList: [
+                    "Eliminar todos los datos desinstalando la app",
+                    "Desactivar cualquier permiso en la configuración del dispositivo",
+                    "Contactarnos con preguntas de privacidad"
+                ],
+                contactTitle: "Información de contacto",
+                contactDescription: "Si tienes preguntas sobre esta política de privacidad, contáctanos:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Desarrollador: Beldiuhin.Tech",
+                contactWebsite: "Sitio web: https://github.com/ybeldiuhin",
                 footer: "Esta política de privacidad es efectiva desde el 6 de septiembre de 2025 para Remindly: Family Planner versión 1.0.0 en adelante."
             },
-            
             pt: {
                 title: "Política de Privacidade",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "Última atualização: 6 de setembro de 2025",
                 shortDescription: "O Remindly armazena todos os dados localmente no seu dispositivo. Não coletamos, armazenamos ou compartilhamos seus dados pessoais com terceiros.",
-                
-                sections: {
-                    dataCollection: {
-                        title: "Informações que coletamos",
-                        content: [
-                            "Câmera: Usada exclusivamente para escaneamento de códigos QR",
-                            "Galeria de fotos: Para salvar códigos QR gerados",
-                            "Lembretes e eventos: Dados que você insere no app",
-                            "Gravações de voz: Para lembretes de voz (se usado)"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "Como usamos as informações",
-                        content: [
-                            "Escanear códigos QR para adicionar eventos rapidamente",
-                            "Criar e salvar códigos QR dos seus eventos",
-                            "Gerenciar lembretes e planos familiares",
-                            "Sincronizar entre dispositivos da família (se habilitado)"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "Armazenamento de dados",
-                        highlight: "Importante: Todos os seus dados são armazenados localmente no seu dispositivo. Não transferimos seus dados pessoais para nossos servidores ou terceiros."
-                    },
-                    permissions: {
-                        title: "Permissões do aplicativo",
-                        content: [
-                            "Câmera: Para escaneamento de códigos QR",
-                            "Armazenamento: Para salvar códigos QR na galeria",
-                            "Microfone: Para lembretes de voz (se usado)",
-                            "Notificações: Para alertas de lembrete"
-                        ]
-                    },
-                    security: {
-                        title: "Segurança",
-                        content: [
-                            "Dados não são transmitidos pela internet sem seu consentimento",
-                            "Usamos métodos modernos de criptografia para armazenamento local",
-                            "Atualizamos regularmente o app para corrigir vulnerabilidades"
-                        ]
-                    },
-                    children: {
-                        title: "Crianças",
-                        content: "Nosso app é projetado para uso familiar. Não coletamos informações pessoais de crianças menores de 13 anos sem consentimento dos pais."
-                    },
-                    changes: {
-                        title: "Mudanças na política",
-                        content: "Podemos atualizar esta política de privacidade. Notificaremos sobre quaisquer mudanças através de atualizações do app ou nesta página."
-                    },
-                    rights: {
-                        title: "Seus direitos",
-                        content: [
-                            "Excluir todos os dados desinstalando o app",
-                            "Desabilitar qualquer permissão nas configurações do dispositivo",
-                            "Nos contatar com questões de privacidade"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "Informações de contato",
-                    description: "Se você tem dúvidas sobre esta política de privacidade, entre em contato:",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "Desenvolvedor: Beldiuhin.Tech",
-                    website: "Site: https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "Informações que coletamos",
+                dataCollectionList: [
+                    "Câmera: Usada exclusivamente para escaneamento de códigos QR",
+                    "Galeria de fotos: Para salvar códigos QR gerados",
+                    "Lembretes e eventos: Dados que você insere no app",
+                    "Gravações de voz: Para lembretes de voz (se usado)"
+                ],
+                dataUsageTitle: "Como usamos as informações",
+                dataUsageList: [
+                    "Escanear códigos QR para adicionar eventos rapidamente",
+                    "Criar e salvar códigos QR dos seus eventos",
+                    "Gerenciar lembretes e planos familiares",
+                    "Sincronizar entre dispositivos da família (se habilitado)"
+                ],
+                dataStorageTitle: "Armazenamento de dados",
+                dataStorageHighlight: "Importante: Todos os seus dados são armazenados localmente no seu dispositivo. Não transferimos seus dados pessoais para nossos servidores ou terceiros.",
+                permissionsTitle: "Permissões do aplicativo",
+                permissionsList: [
+                    "Câmera: Para escaneamento de códigos QR",
+                    "Armazenamento: Para salvar códigos QR na galeria",
+                    "Microfone: Para lembretes de voz (se usado)",
+                    "Notificações: Para alertas de lembrete"
+                ],
+                securityTitle: "Segurança",
+                securityList: [
+                    "Dados não são transmitidos pela internet sem seu consentimento",
+                    "Usamos métodos modernos de criptografia para armazenamento local",
+                    "Atualizamos regularmente o app para corrigir vulnerabilidades"
+                ],
+                childrenTitle: "Crianças",
+                childrenContent: "Nosso app é projetado para uso familiar. Não coletamos informações pessoais de crianças menores de 13 anos sem consentimento dos pais.",
+                changesTitle: "Mudanças na política",
+                changesContent: "Podemos atualizar esta política de privacidade. Notificaremos sobre quaisquer mudanças através de atualizações do app ou nesta página.",
+                rightsTitle: "Seus direitos",
+                rightsList: [
+                    "Excluir todos os dados desinstalando o app",
+                    "Desabilitar qualquer permissão nas configurações do dispositivo",
+                    "Nos contatar com questões de privacidade"
+                ],
+                contactTitle: "Informações de contato",
+                contactDescription: "Se você tem dúvidas sobre esta política de privacidade, entre em contato:",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "Desenvolvedor: Beldiuhin.Tech",
+                contactWebsite: "Site: https://github.com/ybeldiuhin",
                 footer: "Esta política de privacidade é efetiva a partir de 6 de setembro de 2025 para Remindly: Family Planner versão 1.0.0 e superior."
             },
-            
             ja: {
                 title: "プライバシーポリシー",
                 subtitle: "Remindly: Family Planner",
                 lastUpdated: "最終更新日：2025年9月6日",
                 shortDescription: "Remindlyはすべてのデータをお客様のデバイスにローカルで保存します。私たちはお客様の個人データを収集、保存、または第三者と共有することはありません。",
-                
-                sections: {
-                    dataCollection: {
-                        title: "収集する情報",
-                        content: [
-                            "カメラ：QRコードスキャン専用に使用",
-                            "写真ギャラリー：生成されたQRコードの保存用",
-                            "リマインダーとイベント：アプリに入力するデータ",
-                            "音声録音：音声リマインダー用（使用する場合）"
-                        ]
-                    },
-                    dataUsage: {
-                        title: "情報の使用方法",
-                        content: [
-                            "QRコードをスキャンして素早くイベントを追加",
-                            "イベントのQRコードを作成・保存",
-                            "家族のリマインダーと計画を管理",
-                            "家族のデバイス間での同期（有効にした場合）"
-                        ]
-                    },
-                    dataStorage: {
-                        title: "データストレージ",
-                        highlight: "重要：すべてのデータはお客様のデバイスにローカルで保存されます。私たちはお客様の個人データを当社のサーバーや第三者に転送することはありません。"
-                    },
-                    permissions: {
-                        title: "アプリの権限",
-                        content: [
-                            "カメラ：QRコードスキャン用",
-                            "ストレージ：QRコードをギャラリーに保存用",
-                            "マイク：音声リマインダー用（使用する場合）",
-                            "通知：リマインダーアラート用"
-                        ]
-                    },
-                    security: {
-                        title: "セキュリティ",
-                        content: [
-                            "お客様の同意なしにデータがインターネット経由で送信されることはありません",
-                            "ローカルストレージには最新の暗号化方法を使用",
-                            "脆弱性を修正するためにアプリを定期的に更新"
-                        ]
-                    },
-                    children: {
-                        title: "子供",
-                        content: "当アプリは家族での使用を想定して設計されています。保護者の同意なしに13歳未満の子供から個人情報を収集することはありません。"
-                    },
-                    changes: {
-                        title: "ポリシーの変更",
-                        content: "このプライバシーポリシーを更新する場合があります。変更については、アプリの更新またはこのページでお知らせします。"
-                    },
-                    rights: {
-                        title: "お客様の権利",
-                        content: [
-                            "アプリをアンインストールしてすべてのデータを削除",
-                            "デバイス設定で任意の権限を無効化",
-                            "プライバシーに関する質問でお問い合わせ"
-                        ]
-                    }
-                },
-                
-                contact: {
-                    title: "お問い合わせ情報",
-                    description: "このプライバシーポリシーについてご質問がございましたら、お問い合わせください：",
-                    email: "Email: privacy@beldiuhin.tech",
-                    developer: "開発者：Beldiuhin.Tech",
-                    website: "ウェブサイト：https://github.com/ybeldiuhin"
-                },
-                
+                dataCollectionTitle: "収集する情報",
+                dataCollectionList: [
+                    "カメラ：QRコードスキャン専用に使用",
+                    "写真ギャラリー：生成されたQRコードの保存用",
+                    "リマインダーとイベント：アプリに入力するデータ",
+                    "音声録音：音声リマインダー用（使用する場合）"
+                ],
+                dataUsageTitle: "情報の使用方法",
+                dataUsageList: [
+                    "QRコードをスキャンして素早くイベントを追加",
+                    "イベントのQRコードを作成・保存",
+                    "家族のリマインダーと計画を管理",
+                    "家族のデバイス間での同期（有効にした場合）"
+                ],
+                dataStorageTitle: "データストレージ",
+                dataStorageHighlight: "重要：すべてのデータはお客様のデバイスにローカルで保存されます。私たちはお客様の個人データを当社のサーバーや第三者に転送することはありません。",
+                permissionsTitle: "アプリの権限",
+                permissionsList: [
+                    "カメラ：QRコードスキャン用",
+                    "ストレージ：QRコードをギャラリーに保存用",
+                    "マイク：音声リマインダー用（使用する場合）",
+                    "通知：リマインダーアラート用"
+                ],
+                securityTitle: "セキュリティ",
+                securityList: [
+                    "お客様の同意なしにデータがインターネット経由で送信されることはありません",
+                    "ローカルストレージには最新の暗号化方法を使用",
+                    "脆弱性を修正するためにアプリを定期的に更新"
+                ],
+                childrenTitle: "子供",
+                childrenContent: "当アプリは家族での使用を想定して設計されています。保護者の同意なしに13歳未満の子供から個人情報を収集することはありません。",
+                changesTitle: "ポリシーの変更",
+                changesContent: "このプライバシーポリシーを更新する場合があります。変更については、アプリの更新またはこのページでお知らせします。",
+                rightsTitle: "お客様の権利",
+                rightsList: [
+                    "アプリをアンインストールしてすべてのデータを削除",
+                    "デバイス設定で任意の権限を無効化",
+                    "プライバシーに関する質問でお問い合わせ"
+                ],
+                contactTitle: "お問い合わせ情報",
+                contactDescription: "このプライバシーポリシーについてご質問がございましたら、お問い合わせください：",
+                contactEmail: "Email: privacy@beldiuhin.tech",
+                contactDeveloper: "開発者：Beldiuhin.Tech",
+                contactWebsite: "ウェブサイト：https://github.com/ybeldiuhin",
                 footer: "このプライバシーポリシーは2025年9月6日よりRemindly: Family Plannerバージョン1.0.0以降に適用されます。"
             }
+        };
 
-        function PrivacyPolicy() {
-            const [currentLang, setCurrentLang] = useState('en');
+        let currentLang = 'en';
 
-            useEffect(() => {
-                // Detect browser language
-                const browserLang = navigator.language.split('-')[0];
-                if (translations[browserLang]) {
-                    setCurrentLang(browserLang);
-                }
-            }, []);
-
-            const t = translations[currentLang];
-
-            const Section = ({ title, children, icon = "i" }) => (
-                <div className="section fade-in">
-                    <h2>
-                        <div className="section-icon">{icon}</div>
-                        {title}
-                    </h2>
-                    {children}
-                </div>
-            );
-
-            return (
-                <div className="container">
-                    <div className="privacy-card">
-                        <div className="header">
-                            <div className="lang-switcher">
-                                {Object.keys(translations).map(lang => (
-                                    <button
-                                        key={lang}
-                                        className={`lang-btn ${currentLang === lang ? 'active' : ''}`}
-                                        onClick={() => setCurrentLang(lang)}
-                                    >
-                                        {lang.toUpperCase()}
-                                    </button>
-                                ))}
-                            </div>
-                            <h1>{t.title}</h1>
-                            <p>{t.subtitle}</p>
-                        </div>
-
-                        <div className="content">
-                            <p className="date">{t.lastUpdated}</p>
-                            
-                            <div className="highlight fade-in">
-                                <strong>{t.shortDescription}</strong>
-                            </div>
-
-                            <Section title={t.sections.dataCollection.title} icon="📱">
-                                <ul>
-                                    {t.sections.dataCollection.content.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </Section>
-
-                            <Section title={t.sections.dataUsage.title} icon="🔧">
-                                <ul>
-                                    {t.sections.dataUsage.content.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </Section>
-
-                            <Section title={t.sections.dataStorage.title} icon="🔒">
-                                <div className="highlight">
-                                    <strong>{t.sections.dataStorage.highlight}</strong>
-                                </div>
-                            </Section>
-
-                            <Section title={t.sections.permissions.title} icon="⚙️">
-                                <ul>
-                                    {t.sections.permissions.content.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </Section>
-
-                            <Section title={t.sections.security.title} icon="🛡️">
-                                <ul>
-                                    {t.sections.security.content.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </Section>
-
-                            <Section title={t.sections.children.title} icon="👶">
-                                <p>{t.sections.children.content}</p>
-                            </Section>
-
-                            <Section title={t.sections.changes.title} icon="📝">
-                                <p>{t.sections.changes.content}</p>
-                            </Section>
-
-                            <Section title={t.sections.rights.title} icon="⚖️">
-                                <ul>
-                                    {t.sections.rights.content.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </Section>
-
-                            <div className="contact-info fade-in">
-                                <h3>📞 {t.contact.title}</h3>
-                                <p>{t.contact.description}</p>
-                                <div className="contact-item">{t.contact.email}</div>
-                                <div className="contact-item">{t.contact.developer}</div>
-                                <div className="contact-item">{t.contact.website}</div>
-                            </div>
-
-                            <div className="date">
-                                {t.footer}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
+        // Detect browser language
+        function detectLanguage() {
+            const browserLang = navigator.language.split('-')[0];
+            if (translations[browserLang]) {
+                currentLang = browserLang;
+            }
         }
 
-        ReactDOM.render(<PrivacyPolicy />, document.getElementById('root'));
+        // Update content based on selected language
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            document.getElementById('main-title').textContent = t.title;
+            document.getElementById('main-subtitle').textContent = t.subtitle;
+            document.getElementById('last-updated').textContent = t.lastUpdated;
+            document.getElementById('short-description').textContent = t.shortDescription;
+            
+            document.getElementById('data-collection-title').textContent = t.dataCollectionTitle;
+            document.getElementById('data-usage-title').textContent = t.dataUsageTitle;
+            document.getElementById('data-storage-title').textContent = t.dataStorageTitle;
+            document.getElementById('data-storage-highlight').textContent = t.dataStorageHighlight;
+            document.getElementById('permissions-title').textContent = t.permissionsTitle;
+            document.getElementById('security-title').textContent = t.securityTitle;
+            document.getElementById('children-title').textContent = t.childrenTitle;
+            document.getElementById('children-content').textContent = t.childrenContent;
+            document.getElementById('changes-title').textContent = t.changesTitle;
+            document.getElementById('changes-content').textContent = t.changesContent;
+            document.getElementById('rights-title').textContent = t.rightsTitle;
+            
+            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('contact-description').textContent = t.contactDescription;
+            document.getElementById('contact-email').textContent = t.contactEmail;
+            document.getElementById('contact-developer').textContent = t.contactDeveloper;
+            document.getElementById('contact-website').textContent = t.contactWebsite;
+            document.getElementById('footer').textContent = t.footer;
+            
+            updateList('data-collection-list', t.dataCollectionList);
+            updateList('data-usage-list', t.dataUsageList);
+            updateList('permissions-list', t.permissionsList);
+            updateList('security-list', t.securityList);
+            updateList('rights-list', t.rightsList);
+        }
+
+        function updateList(elementId, items) {
+            const listElement = document.getElementById(elementId);
+            listElement.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                listElement.appendChild(li);
+            });
+        }
+
+        function setupLanguageSwitcher() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLang = btn.dataset.lang;
+                    updateContent(currentLang);
+                    document.documentElement.lang = currentLang;
+                });
+            });
+        }
+
+        function init() {
+            detectLanguage();
+            updateContent(currentLang);
+            setupLanguageSwitcher();
+            
+            document.querySelector(`[data-lang="${currentLang}"]`).classList.add('active');
+            document.querySelector('[data-lang="en"]').classList.remove('active');
+            document.documentElement.lang = currentLang;
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
