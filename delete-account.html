@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Remindly: Family Planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #dc3545;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .lang-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .lang-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .warning h3 {
+            margin-bottom: 10px;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .steps h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .steps ol {
+            margin-left: 20px;
+        }
+        
+        .steps li {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: background 0.2s;
+        }
+        
+        .contact-btn:hover {
+            background: #c82333;
+            color: white;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="uk">UK</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="ja">JA</button>
+        </div>
+
+        <div class="header">
+            <h1 id="main-title">Delete Your Account</h1>
+            <p id="main-subtitle">Remindly: Family Planner</p>
+        </div>
+
+        <div class="warning">
+            <h3 id="warning-title">⚠️ Important Warning</h3>
+            <p id="warning-text">Deleting your account is permanent and irreversible. All your data including email, profile photo, reminders, and events will be permanently removed from our servers.</p>
+        </div>
+
+        <div class="info">
+            <h3 id="data-title">📋 Data That Will Be Deleted</h3>
+            <ul id="data-list">
+                <li>Your email address and account credentials</li>
+                <li>Profile photo</li>
+                <li>All reminders and events you created</li>
+                <li>App preferences and settings</li>
+                <li>Any shared data with family members</li>
+            </ul>
+        </div>
+
+        <div class="steps">
+            <h3 id="steps-title">🔄 How to Delete Your Account</h3>
+            <ol id="steps-list">
+                <li>Click the button below to send an email to our support team</li>
+                <li>Include your account email address in the message</li>
+                <li>We will process your request within 30 days</li>
+                <li>You will receive a confirmation email when deletion is complete</li>
+                <li>Your account and all data will be permanently removed</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="mailto:belduginevgen@gmail.com?subject=Account%20Deletion%20Request%20-%20Remindly&body=Hello,%0A%0AI%20would%20like%20to%20delete%20my%20Remindly%20account.%0A%0AMy%20account%20email:%20%5BYOUR_EMAIL_HERE%5D%0A%0APlease%20confirm%20that%20all%20my%20data%20will%20be%20permanently%20deleted.%0A%0AThank%20you." 
+               class="contact-btn" id="contact-btn">
+                📧 Send Deletion Request
+            </a>
+        </div>
+
+        <div class="info">
+            <h3 id="timeline-title">⏱️ Processing Timeline</h3>
+            <p id="timeline-text">Account deletion requests are processed within 30 days. During this period, your account will be deactivated and inaccessible. After 30 days, all data will be permanently erased from our servers.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link" id="back-link">← Back to Privacy Policy</a>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Delete Your Account",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Important Warning",
+                warningText: "Deleting your account is permanent and irreversible. All your data including email, profile photo, reminders, and events will be permanently removed from our servers.",
+                dataTitle: "📋 Data That Will Be Deleted",
+                dataList: [
+                    "Your email address and account credentials",
+                    "Profile photo",
+                    "All reminders and events you created",
+                    "App preferences and settings",
+                    "Any shared data with family members"
+                ],
+                stepsTitle: "🔄 How to Delete Your Account",
+                stepsList: [
+                    "Click the button below to send an email to our support team",
+                    "Include your account email address in the message",
+                    "We will process your request within 30 days",
+                    "You will receive a confirmation email when deletion is complete",
+                    "Your account and all data will be permanently removed"
+                ],
+                contactBtn: "📧 Send Deletion Request",
+                timelineTitle: "⏱️ Processing Timeline",
+                timelineText: "Account deletion requests are processed within 30 days. During this period, your account will be deactivated and inaccessible. After 30 days, all data will be permanently erased from our servers.",
+                backLink: "← Back to Privacy Policy"
+            },
+            uk: {
+                title: "Видалення акаунту",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Важливе попередження",
+                warningText: "Видалення акаунту є постійним та незворотним. Всі ваші дані, включаючи email, фото профілю, нагадування та події будуть назавжди видалені з наших серверів.",
+                dataTitle: "📋 Дані, які будуть видалені",
+                dataList: [
+                    "Ваша email адреса та облікові дані",
+                    "Фото профілю",
+                    "Всі нагадування та події, які ви створили",
+                    "Налаштування та параметри додатку",
+                    "Будь-які спільні дані з членами сім'ї"
+                ],
+                stepsTitle: "🔄 Як видалити акаунт",
+                stepsList: [
+                    "Натисніть кнопку нижче, щоб надіслати email нашій команді підтримки",
+                    "Вкажіть email вашого акаунту в повідомленні",
+                    "Ми обробимо ваш запит протягом 30 днів",
+                    "Ви отримаєте email-підтвердження після завершення видалення",
+                    "Ваш акаунт та всі дані будуть назавжди видалені"
+                ],
+                contactBtn: "📧 Надіслати запит на видалення",
+                timelineTitle: "⏱️ Терміни обробки",
+                timelineText: "Запити на видалення акаунту обробляються протягом 30 днів. Протягом цього періоду ваш акаунт буде деактивований та недоступний. Через 30 днів всі дані будуть назавжди стерті з наших серверів.",
+                backLink: "← Назад до політики конфіденційності"
+            },
+            fr: {
+                title: "Supprimer votre compte",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Avertissement important",
+                warningText: "La suppression de votre compte est permanente et irréversible. Toutes vos données, y compris l'email, la photo de profil, les rappels et événements seront définitivement supprimées de nos serveurs.",
+                dataTitle: "📋 Données qui seront supprimées",
+                dataList: [
+                    "Votre adresse email et identifiants de compte",
+                    "Photo de profil",
+                    "Tous les rappels et événements que vous avez créés",
+                    "Préférences et paramètres de l'application",
+                    "Toutes les données partagées avec les membres de la famille"
+                ],
+                stepsTitle: "🔄 Comment supprimer votre compte",
+                stepsList: [
+                    "Cliquez sur le bouton ci-dessous pour envoyer un email à notre équipe de support",
+                    "Incluez l'adresse email de votre compte dans le message",
+                    "Nous traiterons votre demande dans les 30 jours",
+                    "Vous recevrez un email de confirmation une fois la suppression terminée",
+                    "Votre compte et toutes les données seront définitivement supprimés"
+                ],
+                contactBtn: "📧 Envoyer une demande de suppression",
+                timelineTitle: "⏱️ Délai de traitement",
+                timelineText: "Les demandes de suppression de compte sont traitées dans les 30 jours. Pendant cette période, votre compte sera désactivé et inaccessible. Après 30 jours, toutes les données seront définitivement effacées de nos serveurs.",
+                backLink: "← Retour à la politique de confidentialité"
+            },
+            de: {
+                title: "Ihr Konto löschen",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Wichtige Warnung",
+                warningText: "Das Löschen Ihres Kontos ist dauerhaft und unumkehrbar. Alle Ihre Daten einschließlich E-Mail, Profilbild, Erinnerungen und Ereignisse werden dauerhaft von unseren Servern entfernt.",
+                dataTitle: "📋 Daten, die gelöscht werden",
+                dataList: [
+                    "Ihre E-Mail-Adresse und Kontoanmeldedaten",
+                    "Profilbild",
+                    "Alle Erinnerungen und Ereignisse, die Sie erstellt haben",
+                    "App-Einstellungen und -Präferenzen",
+                    "Alle mit Familienmitgliedern geteilten Daten"
+                ],
+                stepsTitle: "🔄 So löschen Sie Ihr Konto",
+                stepsList: [
+                    "Klicken Sie auf die Schaltfläche unten, um eine E-Mail an unser Support-Team zu senden",
+                    "Geben Sie Ihre Konto-E-Mail-Adresse in der Nachricht an",
+                    "Wir bearbeiten Ihre Anfrage innerhalb von 30 Tagen",
+                    "Sie erhalten eine Bestätigungs-E-Mail, wenn die Löschung abgeschlossen ist",
+                    "Ihr Konto und alle Daten werden dauerhaft entfernt"
+                ],
+                contactBtn: "📧 Löschungsanfrage senden",
+                timelineTitle: "⏱️ Bearbeitungszeit",
+                timelineText: "Kontolöschungsanfragen werden innerhalb von 30 Tagen bearbeitet. Während dieser Zeit wird Ihr Konto deaktiviert und ist nicht zugänglich. Nach 30 Tagen werden alle Daten dauerhaft von unseren Servern gelöscht.",
+                backLink: "← Zurück zur Datenschutzrichtlinie"
+            },
+            es: {
+                title: "Eliminar tu cuenta",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Advertencia importante",
+                warningText: "Eliminar tu cuenta es permanente e irreversible. Todos tus datos incluyendo email, foto de perfil, recordatorios y eventos serán eliminados permanentemente de nuestros servidores.",
+                dataTitle: "📋 Datos que serán eliminados",
+                dataList: [
+                    "Tu dirección de email y credenciales de cuenta",
+                    "Foto de perfil",
+                    "Todos los recordatorios y eventos que creaste",
+                    "Preferencias y configuraciones de la app",
+                    "Cualquier dato compartido con miembros de la familia"
+                ],
+                stepsTitle: "🔄 Cómo eliminar tu cuenta",
+                stepsList: [
+                    "Haz clic en el botón de abajo para enviar un email a nuestro equipo de soporte",
+                    "Incluye la dirección de email de tu cuenta en el mensaje",
+                    "Procesaremos tu solicitud en 30 días",
+                    "Recibirás un email de confirmación cuando se complete la eliminación",
+                    "Tu cuenta y todos los datos serán eliminados permanentemente"
+                ],
+                contactBtn: "📧 Enviar solicitud de eliminación",
+                timelineTitle: "⏱️ Tiempo de procesamiento",
+                timelineText: "Las solicitudes de eliminación de cuenta se procesan en 30 días. Durante este período, tu cuenta será desactivada e inaccesible. Después de 30 días, todos los datos serán borrados permanentemente de nuestros servidores.",
+                backLink: "← Volver a la política de privacidad"
+            },
+            pt: {
+                title: "Excluir sua conta",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ Aviso importante",
+                warningText: "Excluir sua conta é permanente e irreversível. Todos os seus dados incluindo email, foto de perfil, lembretes e eventos serão permanentemente removidos de nossos servidores.",
+                dataTitle: "📋 Dados que serão excluídos",
+                dataList: [
+                    "Seu endereço de email e credenciais da conta",
+                    "Foto de perfil",
+                    "Todos os lembretes e eventos que você criou",
+                    "Preferências e configurações do app",
+                    "Quaisquer dados compartilhados com membros da família"
+                ],
+                stepsTitle: "🔄 Como excluir sua conta",
+                stepsList: [
+                    "Clique no botão abaixo para enviar um email para nossa equipe de suporte",
+                    "Inclua o endereço de email da sua conta na mensagem",
+                    "Processaremos sua solicitação em 30 dias",
+                    "Você receberá um email de confirmação quando a exclusão estiver completa",
+                    "Sua conta e todos os dados serão permanentemente removidos"
+                ],
+                contactBtn: "📧 Enviar solicitação de exclusão",
+                timelineTitle: "⏱️ Cronograma de processamento",
+                timelineText: "Solicitações de exclusão de conta são processadas em 30 dias. Durante este período, sua conta será desativada e inacessível. Após 30 dias, todos os dados serão permanentemente apagados de nossos servidores.",
+                backLink: "← Voltar à política de privacidade"
+            },
+            ja: {
+                title: "アカウントの削除",
+                subtitle: "Remindly: Family Planner",
+                warningTitle: "⚠️ 重要な警告",
+                warningText: "アカウントの削除は永続的で元に戻せません。メール、プロフィール写真、リマインダー、イベントを含むすべてのデータが当社のサーバーから永続的に削除されます。",
+                dataTitle: "📋 削除されるデータ",
+                dataList: [
+                    "メールアドレスとアカウント認証情報",
+                    "プロフィール写真",
+                    "作成したすべてのリマインダーとイベント",
+                    "アプリの設定と環境設定",
+                    "家族メンバーと共有したデータ"
+                ],
+                stepsTitle: "🔄 アカウント削除の方法",
+                stepsList: [
+                    "下のボタンをクリックしてサポートチームにメールを送信",
+                    "メッセージにアカウントのメールアドレスを含める",
+                    "30日以内にリクエストを処理します",
+                    "削除完了時に確認メールをお送りします",
+                    "アカウントとすべてのデータが永続的に削除されます"
+                ],
+                contactBtn: "📧 削除リクエストを送信",
+                timelineTitle: "⏱️ 処理スケジュール",
+                timelineText: "アカウント削除リクエストは30日以内に処理されます。この期間中、アカウントは無効化され、アクセスできなくなります。30日後、すべてのデータが当社のサーバーから永続的に消去されます。",
+                backLink: "← プライバシーポリシーに戻る"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function detectLanguage() {
+            const browserLang = navigator.language.split('-')[0];
+            if (translations[browserLang]) {
+                currentLang = browserLang;
+            }
+        }
+
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            document.getElementById('main-title').textContent = t.title;
+            document.getElementById('main-subtitle').textContent = t.subtitle;
+            document.getElementById('warning-title').innerHTML = t.warningTitle;
+            document.getElementById('warning-text').textContent = t.warningText;
+            document.getElementById('data-title').innerHTML = t.dataTitle;
+            document.getElementById('steps-title').innerHTML = t.stepsTitle;
+            document.getElementById('contact-btn').innerHTML = t.contactBtn;
+            document.getElementById('timeline-title').innerHTML = t.timelineTitle;
+            document.getElementById('timeline-text').textContent = t.timelineText;
+            document.getElementById('back-link').innerHTML = t.backLink;
+            
+            updateList('data-list', t.dataList);
+            updateOrderedList('steps-list', t.stepsList);
+        }
+
+        function updateList(elementId, items) {
+            const listElement = document.getElementById(elementId);
+            listElement.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                listElement.appendChild(li);
+            });
+        }
+
+        function updateOrderedList(elementId, items) {
+            const listElement = document.getElementById(elementId);
+            listElement.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                listElement.appendChild(li);
+            });
+        }
+
+        function setupLanguageSwitcher() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLang = btn.dataset.lang;
+                    updateContent(currentLang);
+                    document.documentElement.lang = currentLang;
+                });
+            });
+        }
+
+        function init() {
+            detectLanguage();
+            updateContent(currentLang);
+            setupLanguageSwitcher();
+            
+            document.querySelector(`[data-lang="${currentLang}"]`).classList.add('active');
+            document.querySelector('[data-lang="en"]').classList.remove('active');
+            document.documentElement.lang = currentLang;
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
